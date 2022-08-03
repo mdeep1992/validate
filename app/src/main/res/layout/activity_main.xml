@@ -16,12 +16,14 @@
        android:background="@drawable/edit_bg"
        android:layout_marginTop="20dp"
        android:padding="10dp"/>
+
     <EditText
         android:id="@+id/edt_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="number"
         android:inputType="number"
+
         android:background="@drawable/edit_bg"
         android:layout_marginTop="20dp"
         android:padding="10dp"/>
@@ -34,6 +36,20 @@
         android:inputType="textPassword"
         android:layout_marginTop="20dp"
         android:padding="10dp"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:placeholderText="enter the number"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_ednum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="8"
+            android:hint="mobile num"/>
+    </com.google.android.material.textfield.TextInputLayout>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
         android:layout_width="wrap_content"
