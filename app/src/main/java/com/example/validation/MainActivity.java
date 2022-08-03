@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.Set;
 
@@ -32,21 +33,23 @@ Button login_btn;
         });
     }
     private boolean validate(String email,String number,String password) {
-        if (!email.matches("[a-zA-Z0-9][-*.#]@[a-z]\\.[a-z]")) {
+        if (!email.matches("[a-zA-Z0-9]+[@][a-z]+\\.[a-z]{2,3}")) {
             ed_email.requestFocus();
             ed_email.setError("enter the valid email address");
             return false;
 
-        } else if (!(number.length() == 10) && number.matches("[89]")) {
-            ed_number.setError("phone number contains ten numbers");
+        } else if (!((number.length() == 10) && number.matches("^[8,9]{1}[0-9]{9}"))) {
             ed_number.requestFocus();
+            ed_number.setError("phone number contains ten numbers");
             return false;
-        } else
-        if (!password.matches("[@#&]+[0-9a-zA-z]+")) {
-            ed_password.setError("password too weak");
+        } else if (!(password.matches("[*#_]+[0-9a-zA-z]+") && (password.length() == 8))) {
             ed_password.requestFocus();
+            ed_password.setError("password too weak");
+
             return false;
+        } else {
+            Toast.makeText(this,"login success",Toast.LENGTH_LONG).show();
+            return true;
         }
-return true;
     }
 }
